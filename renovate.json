@@ -1,6 +1,7 @@
 {
   "customManagers": [
     {
+      "fileMatch": ["^Dockerfile$"],
       "matchString": "",
       "datasource": "npm"
     }
