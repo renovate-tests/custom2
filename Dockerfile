@@ -21,9 +21,9 @@ LABEL org.opencontainers.image.source="https://github.com/renovatebot/renovate"
 ENV APP_ROOT=/usr/src/app
 WORKDIR ${APP_ROOT}
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV LC_ALL C.UTF-8
-ENV LANG C.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
 
 RUN apt-get update && \
     apt-get install -y gpg curl wget unzip xz-utils openssh-client bsdtar build-essential openjdk-11-jre-headless dirmngr && \
@@ -37,7 +37,7 @@ RUN echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main\ndeb-src 
     rm -rf /var/lib/apt/lists/*
 
 ## Gradle (needs java-jre, installed above)
-ENV GRADLE_VERSION 6.2
+ENV GRADLE_VERSION=6.2
 
 RUN wget --no-verbose https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
     unzip -q -d /opt/ gradle-$GRADLE_VERSION-bin.zip && \
@@ -49,7 +49,7 @@ RUN wget --no-verbose https://services.gradle.org/distributions/gradle-$GRADLE_V
 
 # START copy Node.js from https://github.com/nodejs/docker-node/blob/master/10/jessie/Dockerfile
 
-ENV NODE_VERSION 10.19.0
+ENV NODE_VERSION=10.19.0
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -106,14 +106,14 @@ RUN apt-get update && \
 
 # Elixir
 
-ENV ELIXIR_VERSION 1.8.2
+ENV ELIXIR_VERSION=1.8.2
 
 RUN curl -L https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip -o Precompiled.zip && \
     mkdir -p /opt/elixir-${ELIXIR_VERSION}/ && \
     unzip Precompiled.zip -d /opt/elixir-${ELIXIR_VERSION}/ && \
     rm Precompiled.zip
 
-ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
+ENV PATH=$PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
 # PHP Composer
 
@@ -131,7 +131,7 @@ RUN chmod +x /usr/local/bin/composer
 RUN apt-get update && apt-get install -y bzr mercurial && \
     rm -rf /var/lib/apt/lists/*
 
-ENV GOLANG_VERSION 1.13.4
+ENV GOLANG_VERSION=1.13.4
 
 # Disable GOPROXY and GOSUMDB until we offer a solid solution to configure
 # private repositories.
@@ -142,8 +142,8 @@ RUN wget -q -O go.tgz "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar
   rm go.tgz && \
   export PATH="/usr/local/go/bin:$PATH"
 
-ENV GOPATH /go
-ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+ENV GOPATH=/go
+ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
@@ -164,7 +164,7 @@ RUN curl --silent https://bootstrap.pypa.io/get-pip.py | python
 # CocoaPods
 RUN apt-get update && apt-get install -y ruby ruby2.5-dev && rm -rf /var/lib/apt/lists/*
 RUN ruby --version
-ENV COCOAPODS_VERSION 1.9.0
+ENV COCOAPODS_VERSION=1.9.0
 RUN gem install --no-rdoc --no-ri cocoapods -v ${COCOAPODS_VERSION}
 
 # Set up ubuntu user and home directory with access to users in the root group (0)
@@ -214,7 +214,7 @@ RUN pip install --user pipenv
 
 # Poetry
 
-ENV POETRY_VERSION=1.0.0
+ENV POETRY_VERSION=1.0.0 # github-releases:python-poetry/poetry
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - --version ${POETRY_VERSION}
 
@@ -223,13 +223,13 @@ RUN poetry config virtualenvs.in-project false
 
 # npm
 
-ENV NPM_VERSION=6.10.2
+ENV NPM_VERSION=6.10.2 # npm:npm
 
 RUN npm install -g npm@$NPM_VERSION
 
 # Yarn
 
-ENV YARN_VERSION=1.19.1
+ENV YARN_VERSION=1.19.1 # npm:yarn
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION}
 
