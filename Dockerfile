@@ -49,7 +49,7 @@ RUN wget --no-verbose https://services.gradle.org/distributions/gradle-$GRADLE_V
 
 # START copy Node.js from https://github.com/nodejs/docker-node/blob/master/10/jessie/Dockerfile
 
-ENV NODE_VERSION=10.19.0
+ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
