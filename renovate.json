@@ -2,7 +2,7 @@
   "customManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
-      "matchString": "ENV NPM_VERSION=(?<currentValue>[^\n\\s#]+)",
+      "matchString": "ENV NPM_VERSION=(?<currentValue>[^\n\s#]+)",
       "datasource": "npm",
       "depName": "npm"
     }
