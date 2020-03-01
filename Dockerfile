@@ -214,7 +214,7 @@ RUN pip install --user pipenv
 
 # Poetry
 
-ENV POETRY_VERSION=1.0.0 # github-releases:python-poetry/poetry
+ENV POETRY_VERSION=1.0.0 # github-releases/python-poetry/poetry
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - --version ${POETRY_VERSION}
 
@@ -223,13 +223,13 @@ RUN poetry config virtualenvs.in-project false
 
 # npm
 
-ENV NPM_VERSION=6.10.2 # npm:npm
+ENV NPM_VERSION=6.10.2 # npm/npm
 
 RUN npm install -g npm@$NPM_VERSION
 
 # Yarn
 
-ENV YARN_VERSION=1.19.1 # npm:yarn
+ENV YARN_VERSION=1.19.1 # npm/yarn
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION}
 
