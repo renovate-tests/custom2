@@ -5,6 +5,11 @@
       "matchString": "ENV NPM_VERSION=(?<currentValue>[^\n\\s#]+)",
       "datasource": "npm",
       "depName": "npm"
+    }, {
+      "fileMatch": ["^Dockerfile$"],
+      "matchString": "ENV YARN_VERSION=(?<currentValue>[^\n\\s#]+)",
+      "datasource": "npm",
+      "depName": "yarn"
     }
   ]
 }
