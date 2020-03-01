@@ -164,7 +164,7 @@ RUN curl --silent https://bootstrap.pypa.io/get-pip.py | python
 # CocoaPods
 RUN apt-get update && apt-get install -y ruby ruby2.5-dev && rm -rf /var/lib/apt/lists/*
 RUN ruby --version
-ENV COCOAPODS_VERSION=1.9.0 # rubygems/cocoapods&versioning=ruby-semver
+ENV COCOAPODS_VERSION=1.9.0 # rubygems/cocoapods&versioning=ruby
 RUN gem install --no-rdoc --no-ri cocoapods -v ${COCOAPODS_VERSION}
 
 # Set up ubuntu user and home directory with access to users in the root group (0)
