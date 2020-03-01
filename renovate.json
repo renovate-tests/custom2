@@ -1,0 +1,8 @@
+{
+  "customManagers": [
+    {
+      "matchString": "",
+      "datasource": "npm"
+    }
+  ]
+}
