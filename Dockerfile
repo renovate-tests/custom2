@@ -182,7 +182,7 @@ RUN chown -R ubuntu:0 ${APP_ROOT} ${HOME} && \
 RUN groupadd -g 999 docker
 RUN usermod -aG docker ubuntu
 
-ENV DOCKER_VERSION=19.03.1 # github-releases/docker/docker-ce&versioning=docker
+ENV DOCKER_VERSION=v19.03.6 # github-releases/docker/docker-ce&versioning=docker
 
 RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
   && tar xzvf docker-${DOCKER_VERSION}.tgz --strip 1 \
