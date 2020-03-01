@@ -4,5 +4,10 @@
       "fileMatch": ["^Dockerfile$"],
       "matchString": "ENV .*?_VERSION=(?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
     }
-  ]
+  ],
+  "packageRules": [{
+    "packageNames": "node",
+    "updateTypes": ["major"],
+    "enabled": false
+  }]
 }
