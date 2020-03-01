@@ -37,7 +37,7 @@ RUN echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main\ndeb-src 
     rm -rf /var/lib/apt/lists/*
 
 ## Gradle (needs java-jre, installed above)
-ENV GRADLE_VERSION=6.2
+ENV GRADLE_VERSION=6.2 # gradle-version/gradle
 
 RUN wget --no-verbose https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
     unzip -q -d /opt/ gradle-$GRADLE_VERSION-bin.zip && \
