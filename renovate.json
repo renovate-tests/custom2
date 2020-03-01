@@ -2,7 +2,7 @@
   "customManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
-      "matchString": "ENV .*?_VERSION=(?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*)\\s(?<versioning>.*?)?\\s*"
+      "matchString": "ENV .*?_VERSION=(?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*)\\s(versioning=)?(?<versioning>.*?)?\\s*"
     }
   ]
 }
