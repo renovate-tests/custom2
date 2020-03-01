@@ -6,7 +6,7 @@
     }
   ],
   "packageRules": [{
-    "packageNames": "node",
+    "packageNames": "nodejs/node",
     "updateTypes": ["major"],
     "enabled": false
   }]
