@@ -229,7 +229,7 @@ RUN npm install -g npm@$NPM_VERSION
 
 # Yarn
 
-ENV YARN_VERSION=1.19.1 # npm/yarn
+ENV YARN_VERSION=1.22.0 # npm/yarn
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION}
 
