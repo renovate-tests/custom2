@@ -214,7 +214,7 @@ RUN pip install --user pipenv
 
 # Poetry
 
-ENV POETRY_VERSION=1.0.0 # github-releases/python-poetry/poetry
+ENV POETRY_VERSION=1.0.5 # github-releases/python-poetry/poetry
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - --version ${POETRY_VERSION}
 
