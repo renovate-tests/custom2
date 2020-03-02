@@ -223,7 +223,7 @@ RUN poetry config virtualenvs.in-project false
 
 # npm
 
-ENV NPM_VERSION=6.10.2 # npm/npm
+ENV NPM_VERSION=6.14.1 # npm/npm
 
 RUN npm install -g npm@$NPM_VERSION
 
